@@ -62,6 +62,18 @@ h1{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:600;letter-spacing:-.01em;marg
 .empty p{color:var(--muted);margin-bottom:0}
 
 #work,#projects{background:var(--alt)}
+
+.proj{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:26px 26px 22px;margin-bottom:20px}
+.proj .meta{font:500 .8rem var(--body);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.proj h3{font-size:1.3rem;font-weight:600;margin-bottom:8px;line-height:1.25}
+.proj .one{color:var(--muted);margin-bottom:16px}
+.proj h4{font:600 .85rem var(--body);text-transform:uppercase;letter-spacing:.05em;margin:16px 0 6px}
+.proj ul.pts{margin:0;padding-left:20px}
+.proj ul.pts li{margin-bottom:6px}
+.proj p{margin-bottom:0}
+.proj .chips{margin-top:18px}
+.proj .chips li{font-size:.85rem;padding:3px 12px;background:var(--alt)}
+.note{color:var(--muted);font-size:.95rem;margin-bottom:24px}
 footer{padding:28px 0 40px;background:var(--bg);border-top:1px solid var(--line);color:var(--muted);font-size:.92rem}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 </style>
@@ -94,7 +106,7 @@ footer{padding:28px 0 40px;background:var(--bg);border-top:1px solid var(--line)
     <h2>What I do</h2>
     <div class="grid">
       <div class="card"><h3>Automated reporting</h3><p>Python and Google Apps Script systems that replace manual, repeated reporting and data work.</p></div>
-      <div class="card"><h3>Portals and web tools</h3><p>Portals and internal tools built end to end, including a live Olympiad registration portal.</p></div>
+      <div class="card"><h3>Portals and web tools</h3><p>Registration portals and workflow tools built end to end, at close to zero cost.</p></div>
       <div class="card"><h3>Dashboards</h3><p>Interactive Tableau dashboards that give teams a clear view of their numbers.</p></div>
       <div class="card"><h3>Large-scale data handling</h3><p>Cleaning, structuring and managing big datasets so they are ready for analysis.</p></div>
       <div class="card"><h3>Stakeholder collaboration</h3><p>Turning business questions from different teams into clear, usable answers.</p></div>
@@ -106,8 +118,7 @@ footer{padding:28px 0 40px;background:var(--bg);border-top:1px solid var(--line)
   <div class="wrap">
     <h2>Skills</h2>
     <ul class="chips">
-      <li>Python</li><li>Google Apps Script</li><li>Tableau</li>
-      <li>Data cleaning</li><li>Reporting automation</li><li>Business intelligence</li>
+      <li>Python</li><li>SQL</li><li>Web scraping</li><li>Data pipelines</li><li>Data cleaning</li><li>Tableau</li><li>Google Apps Script</li><li>Supabase</li><li>Gmail and Drive automation</li><li>CRM and lead tracking</li><li>Email and message campaigns</li><li>Lead generation</li>
     </ul>
     <p class="sub">Currently learning</p>
     <ul class="chips soft">
@@ -119,10 +130,57 @@ footer{padding:28px 0 40px;background:var(--bg);border-top:1px solid var(--line)
 <section id="projects">
   <div class="wrap">
     <h2>Projects</h2>
-    <div class="empty">
-      <h3>Case studies are being added</h3>
-      <p>I'm publishing project write-ups here, each with the problem, the data, the method and the result. In the meantime, see my code on <a href="https://github.com/rudar1360" target="_blank" rel="noopener">GitHub</a> or get in touch for details of my work.</p>
-    </div>
+    <p class="note">Selected work. Company and student data is not shown, so each project is a write-up of what I built and what changed.</p>
+    <article class="proj">
+      <div class="meta">Data engineering · Patents</div>
+      <h3>InsideSEP: Standards Essential Patents data pipeline</h3>
+      <p class="one">A pipeline that brings 700,000+ patent records from scattered sources into one clean, analysis-ready dataset.</p>
+      <h4>The problem</h4><p>Standards Essential Patent data sits with many standards bodies, in scanned PDFs, OCR output, CSV files and APIs. Each source has its own format, so none of it could be analysed together.</p>
+      <h4>What I built</h4><ul class="pts"><li>Wrote Python scripts for automated web scraping and data transformation across all sources</li><li>Handled collection, consolidation, cleaning, normalisation and standardisation of 700,000+ records</li><li>Built validation and error-correction steps: missing values, deduplication and false-positive reduction</li><li>Built Tableau dashboards so clients could explore the patent analytics visually</li></ul>
+      <h4>Outcome</h4><p>Manual extraction time dropped, pipeline throughput went up, and clients received a reliable dataset and dashboards they could use for patent analytics.</p>
+      <ul class="chips"><li>Python</li><li>Web scraping</li><li>OCR data</li><li>REST APIs</li><li>Tableau</li></ul>
+    </article>
+    
+    <article class="proj">
+      <div class="meta">Automation · Registration</div>
+      <h3>One registration portal for the whole North region</h3>
+      <p class="one">A single portal that replaced manual registration, built and run at almost zero cost.</p>
+      <h4>The problem</h4><p>Student registration across the North region was handled manually. A custom build would normally have needed a web developer and a paid stack.</p>
+      <h4>What I built</h4><ul class="pts"><li>Designed the full system and data flow myself and set up the SQL database on Supabase</li><li>Hosted it on Render and used Google Apps Script as a lightweight data layer</li><li>Used AI tools to build the frontend, so I could ship without a developer</li></ul>
+      <h4>Outcome</h4><p>Students register in one place, the process that was manual is now automatic, and the whole system cost almost nothing to run. I built and ran it solo.</p>
+      <ul class="chips"><li>SQL</li><li>Supabase</li><li>Render</li><li>Google Apps Script</li><li>Google Sheets</li></ul>
+    </article>
+    
+    <article class="proj">
+      <div class="meta">Automation · Large-scale data</div>
+      <h3>SCORE exam: registration, centre allocation and admit cards for 40,000+ students</h3>
+      <p class="one">I handled the SCORE exam for the entire North region on my own, from registration to admit cards, at zero cost.</p>
+      <h4>The problem</h4><p>SCORE is an all-India exam. In the North region, 40,000+ student records were coming in from offline forms across many centres, with no single system to collect them, allocate exam centres, or deliver admit cards.</p>
+      <h4>What I built</h4><ul class="pts"><li>A portal where every centre could type in its offline forms, with all entries combined in one place</li><li>City-wise and region-wise allocation of exam centres for each student</li><li>Fully automated admit cards: a roll number and a PDF generated for every student</li><li>Python scripts using the Google Drive API and pandas to create a Drive link for each admit card, so every student could open theirs</li><li>Research and development on how to build all of this at zero cost and still keep it accessible to every student</li></ul>
+      <h4>Outcome</h4><p>40,000+ records handled across the North region with no database and no cloud cost. I managed the whole project end to end on my own.</p>
+      <ul class="chips"><li>Python</li><li>Google Drive API</li><li>pandas</li><li>Google Apps Script</li><li>Google Sheets</li><li>PDF automation</li></ul>
+    </article>
+    
+    <article class="proj">
+      <div class="meta">Automation · Results</div>
+      <h3>Automated results and student reporting</h3>
+      <p class="one">Centers upload results; students receive their result PDFs by email without anyone sending them by hand.</p>
+      <h4>The problem</h4><p>Attendance and academic results came from many centers, and sending each student their result was slow and manual.</p>
+      <h4>What I built</h4><ul class="pts"><li>Built an Apps Script system for attendance and academic records across centers</li><li>Centers only upload their result file; the system does the rest</li><li>Integrated Gmail so every student automatically gets a result PDF</li></ul>
+      <h4>Outcome</h4><p>A manual, repeated task became a single upload step. Built and maintained by me alone.</p>
+      <ul class="chips"><li>Google Apps Script</li><li>Gmail</li><li>Google Sheets</li><li>PDF automation</li></ul>
+    </article>
+    
+    <article class="proj">
+      <div class="meta">Business development · Marketing</div>
+      <h3>CRM, lead generation and campaigns</h3>
+      <p class="one">Data work that supported sales and brought in more revenue.</p>
+      <h4>The problem</h4><p>The business development team needed organised leads, clear tracking, and consistent outreach.</p>
+      <h4>What I built</h4><ul class="pts"><li>Worked in CRMs on lead generation and lead tracking with the business development team</li><li>Ran message and email campaigns to reach and convert leads</li><li>Used data to decide who to contact and to follow up on results</li></ul>
+      <h4>Outcome</h4><p>A cleaner lead pipeline and more consistent outreach, supporting revenue for the team.</p>
+      <ul class="chips"><li>CRM</li><li>Lead generation</li><li>Email campaigns</li><li>Message campaigns</li></ul>
+    </article>
+    
   </div>
 </section>
 
